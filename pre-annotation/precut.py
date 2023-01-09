@@ -28,16 +28,15 @@ def cut_image(img, n_size=(480, 320)):
 
 if __name__ == "__main__":
     # 1.设置
-    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGS"
-    output_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGS2"
-    idx_off = 23
+    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGImages"
+    output_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGImages2"
     # 2.创建文件夹
     os.makedirs(output_dir, exist_ok=True)
     # 3.预处理及保存数据
     names = os.listdir(image_dir)
-    for idx, name in tqdm(enumerate(names, start=1)):
+    for name in tqdm(names):
         image_path = osp.join(image_dir, name)
-        save_path = osp.join(output_dir, "local(" + str(idx_off + idx) + ").jpg")
+        save_path = osp.join(output_dir, name)
         image = cv2.imread(image_path)
         image = cut_image(image)
         cv2.imwrite(save_path, image)
