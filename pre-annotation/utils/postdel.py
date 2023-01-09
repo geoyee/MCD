@@ -5,10 +5,18 @@ import numpy as np
 from tqdm import tqdm
 
 
-def pre_togray(img):
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    result = np.zeros_like(img)
-    result[img != 0] = 1
+def pre_togray(lab):
+    num_shp = len(lab.shape)
+    if num_shp == 2:
+        pass
+    elif num_shp == 3:
+        lab = cv2.cvtColor(lab, cv2.COLOR_BGR2GRAY)
+    elif num_shp == 4:
+        lab = cv2.cvtColor(lab, cv2.COLOR_BGRA2GRAY)
+    else:
+        raise ValueError("ERROR")
+    result = np.zeros_like(lab)
+    result[lab != 0] = 1
     return result.astype("uint8")
 
 

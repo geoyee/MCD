@@ -5,21 +5,7 @@ import cv2
 import numpy as np
 from PIL import Image
 from tqdm import tqdm
-
-
-def label_deal(lab):
-    num_shp = len(lab.shape)
-    if num_shp == 2:
-        pass
-    elif num_shp == 3:
-        lab = cv2.cvtColor(lab, cv2.COLOR_BGR2GRAY)
-    elif num_shp == 4:
-        lab = cv2.cvtColor(lab, cv2.COLOR_BGRA2GRAY)
-    else:
-        raise ValueError("ERROR")
-    result = np.zeros_like(lab)
-    result[lab != 0] = 1
-    return result.astype("uint8")
+from utils import pre_togray
 
 
 def save_palette(label, save_path):
@@ -49,7 +35,7 @@ if __name__ == "__main__":
             image_save_path = image_path.replace(name_without_ext, new_name_without_ext)
             label_save_path = label_path.replace(name_without_ext, new_name_without_ext)
             label = cv2.imread(label_path)
-            label = label_deal(label)
+            label = pre_togray(label)
             os.rename(image_path, image_save_path)
             os.remove(label_path)
             save_palette(label, label_save_path)
