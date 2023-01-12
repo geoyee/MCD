@@ -23,9 +23,9 @@ if __name__ == "__main__":
     model = init_model()
     # 3.预处理及保存数据
     names = os.listdir(image_dir)
-    for idx, name in tqdm(enumerate(names, start=1)):
+    for name in tqdm(names):
         image_path = osp.join(image_dir, name)
-        name_without_ext = "C" + str(idx)
+        name_without_ext = name.split(".")[0]
         img_save_path = osp.join(img_save_dir, (name_without_ext + ".jpg"))
         lab_save_path = osp.join(lab_save_dir, (name_without_ext + ".png"))
         # 1.预处理图像

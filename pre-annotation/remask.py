@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from PIL import Image
 from tqdm import tqdm
-from utils import pre_togray
+from utils import cut_image, pre_togray
 
 
 def save_palette(label, save_path):
@@ -20,7 +20,9 @@ def save_palette(label, save_path):
 
 if __name__ == "__main__":
     # 1.设置
-    data_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\pretrain"
+    re_name = False  # 是否重命名
+    is_cut = True  # 是否裁剪
+    data_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\PreTrainData"
     image_mid_path = "JPEGImages"
     label_mid_path = "Annotations"
     # 2.处理标签及重用名
@@ -31,12 +33,22 @@ if __name__ == "__main__":
         label_path = osp.join(data_dir, label_mid_path, name.replace(".jpg", ".png"))
         if osp.exists(label_path):
             name_without_ext = name.split(".")[0]
-            new_name_without_ext = "c" + str(idx)
-            image_save_path = image_path.replace(name_without_ext, new_name_without_ext)
-            label_save_path = label_path.replace(name_without_ext, new_name_without_ext)
+            if re_name:
+                new_name_without_ext = "c" + str(idx)
+                image_save_path = image_path.replace(name_without_ext, new_name_without_ext)
+                label_save_path = label_path.replace(name_without_ext, new_name_without_ext)
+            else:
+                image_save_path = image_path
+                label_save_path = label_path
+            # 3.保存图像
+            image = cv2.imread(image_path)
+            image = cut_image(image)
+            os.remove(image_path)
+            cv2.imwrite(image_save_path, image)
+            # 4.保存标签
             label = cv2.imread(label_path)
+            label = cut_image(label)
             label = pre_togray(label)
-            os.rename(image_path, image_save_path)
             os.remove(label_path)
             save_palette(label, label_save_path)
         else:
