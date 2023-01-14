@@ -13,7 +13,7 @@ from utils import (
 
 if __name__ == "__main__":
     # 1.设置
-    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGImages"
+    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGS"
     output_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\output"
     # 2.创建文件夹
     img_save_dir = osp.join(output_dir, "JPEGImages")
@@ -38,7 +38,7 @@ if __name__ == "__main__":
         pred = paddle.argmax(model(img)[0], axis=1).squeeze().numpy().astype("uint8")
         # 3.后处理
         pred = pre_togray(pred)
-        pred = erode(pred)
+        # pred = erode(pred)
         pred = deal_connection(pred)
         # 4.保存标签
         Image.fromarray(pred).save(lab_save_path, "PNG")
