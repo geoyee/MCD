@@ -13,8 +13,8 @@ from utils import (
 
 if __name__ == "__main__":
     # 1.设置
-    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGS"
-    output_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\output"
+    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\New\JPEGImages"
+    output_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\New\output"
     # 2.创建文件夹
     img_save_dir = osp.join(output_dir, "JPEGImages")
     os.makedirs(img_save_dir, exist_ok=True)

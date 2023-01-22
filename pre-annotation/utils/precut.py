@@ -28,8 +28,8 @@ def cut_image(img, n_size=(480, 320)):
 
 if __name__ == "__main__":
     # 1.设置
-    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGImages"
-    output_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGImages2"
+    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\New\JPEGImages"
+    output_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\New\JPEGImages2"
     # 2.创建文件夹
     os.makedirs(output_dir, exist_ok=True)
     # 3.预处理及保存数据

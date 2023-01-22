@@ -23,8 +23,8 @@ if __name__ == "__main__":
     re_name = True  # 是否重命名
     idx_offset = 219  # 重命名偏移
     is_cut = True  # 是否裁剪
-    is_rand = False  # 是否乱序
-    data_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\output"
+    is_rand = True  # 是否乱序
+    data_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\New\output"
     image_mid_path = "JPEGImages"
     label_mid_path = "Annotations"
     # 2.处理标签及重用名
