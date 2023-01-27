@@ -21,10 +21,10 @@ def save_palette(label, save_path):
 if __name__ == "__main__":
     # 1.设置
     re_name = True  # 是否重命名
-    idx_offset = 219  # 重命名偏移
+    idx_offset = 0  # 重命名偏移
     is_cut = True  # 是否裁剪
     is_rand = True  # 是否乱序
-    data_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\New\output"
+    data_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\PreTrainData"
     image_mid_path = "JPEGImages"
     label_mid_path = "Annotations"
     # 2.处理标签及重用名
@@ -37,7 +37,7 @@ if __name__ == "__main__":
         if osp.exists(label_path):
             name_without_ext = name.split(".")[0]
             if re_name:
-                new_name_without_ext = "C" + str(idx_offset + idx)
+                new_name_without_ext = "pre" + str(idx_offset + idx)
                 image_save_path = image_path.replace(name_without_ext, new_name_without_ext)
                 label_save_path = label_path.replace(name_without_ext, new_name_without_ext)
             else:
