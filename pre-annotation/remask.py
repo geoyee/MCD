@@ -24,7 +24,7 @@ if __name__ == "__main__":
     idx_offset = 0  # 重命名偏移
     is_cut = True  # 是否裁剪
     is_rand = True  # 是否乱序
-    data_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\PreTrainData"
+    data_dir = r"E:\MCD\dataset"
     image_mid_path = "JPEGImages"
     label_mid_path = "Annotations"
     # 2.处理标签及重用名

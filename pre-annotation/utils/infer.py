@@ -22,8 +22,8 @@ val_transforms = T.Compose([T.Normalize()])
 
 
 if __name__ == "__main__":
-    imgs_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGImages"
-    save_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\JPEGImages2"
+    imgs_dir = r"E:\MCD\dataset\JPEGImages"
+    save_dir = r"E:\MCD\dataset\JPEGImages2"
     model = init_model()
     if not osp.exists(save_dir):
         os.makedirs(save_dir)

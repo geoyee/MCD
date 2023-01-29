@@ -42,7 +42,7 @@ def deal_connection(pred, threshold=8):
 
 if __name__ == "__main__":
     # 1.设置
-    image_dir = r"E:\MyData\graduate\BS\Crack\.crack\infs\DIY\Annotations"
+    image_dir = r"E:\MCD\dataset\Annotations"
     # 2.处理小联通区
     names = os.listdir(image_dir)
     for idx, name in tqdm(enumerate(names, start=1)):
